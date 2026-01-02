@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ app_name or 'Sentiment Analysis' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1 class="title">{{ app_name or 'Sentiment Analysis App' }}</h1>
+        <p class="subtitle">
+          <span class="badge {{ 'badge-ok' if package_loaded else 'badge-warn' }}">
+            Package: {{ 'Chargé' if package_loaded else 'Absent' }}
+          </span>
+          <span class="badge {{ 'badge-ok' if watson_configured else 'badge-warn' }}">
+            Watson: {{ 'Configuré' if watson_configured else 'Mode démo' }}
+          </span>
+        </p>
+      </header>
+
+      <section class="card">
+        <form id="analyze-form" class="form" autocomplete="off">
+          <label for="text" class="label">Texte à analyser</label>
+          <textarea
+            id="text"
+            name="text"
+            class="textarea"
+            rows="6"
+            placeholder="Ex: Je suis très content de ce service !"
+            maxlength="1000"
+            required
+          ></textarea>
+
+          <div class="actions">
+            <button id="analyze-btn" type="submit" class="button">Analyser</button>
+            <button id="clear-btn" type="button" class="button button-secondary">Effacer</button>
+          </div>
+        </form>
+
+        <div id="result" class="result" hidden>
+          <div class="result-header">
+            <h2 class="result-title">Résultat</h2>
+            <span id="mode" class="badge"></span>
+          </div>
+
+          <div id="summary" class="summary"></div>
+
+          <div class="grid">
+            <div class="stat">
+              <div class="stat-label">Sentiment</div>
+              <div id="sentiment" class="stat-value"></div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Score</div>
+              <div id="score" class="stat-value"></div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Confiance</div>
+              <div id="confidence" class="stat-value"></div>
+            </div>
+          </div>
+
+          <div id="error" class="error" hidden></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

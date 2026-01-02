@@ -1,0 +1,51 @@
+[MASTER]
+# Analyse tous les fichiers Python
+files=src/,tests/,app.py
+
+# Format de sortie
+output-format=colorized
+
+# Score minimum
+fail-under=7.0
+
+# Désactiver certains messages
+disable=
+    C0103,  # Invalid name
+    R0903,  # Too few public methods
+    R0913,  # Too many arguments
+    W0511,  # TODO warnings
+    C0301,  # Line too long
+
+[MESSAGES CONTROL]
+# Activer les messages utiles
+enable=
+    all
+
+[FORMAT]
+# Longueur max des lignes
+max-line-length=100
+
+# Style de nommage
+function-naming-style=snake_case
+variable-naming-style=snake_case
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+
+[BASIC]
+# Bonnes pratiques
+good-names=i,j,k,ex,run,_
+bad-names=foo,bar,baz
+
+# Docstrings
+docstring-min-length=10
+
+[DESIGN]
+# Complexité maximale
+max-args=5
+max-locals=15
+max-returns=6
+max-branches=12
+max-statements=50
+max-parents=7
+max-attributes=10
+max-public-methods=20
