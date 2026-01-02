@@ -21,6 +21,7 @@ Le projet peut fonctionner en **mode démo** ou en utilisant l’**API IBM Watso
 ## Structure du projet
 
 sentiment-analysis-app/
+```
 │
 ├─ app.py # Application Flask principale
 ├─ requirements.txt # Dépendances Python
@@ -34,6 +35,8 @@ sentiment-analysis-app/
 │ └─ app.js # JS pour l’UI
 └─ templates/
 └─ index.html # Interface utilisateur
+```
+
 
 ## Mode de fonctionnement
 
